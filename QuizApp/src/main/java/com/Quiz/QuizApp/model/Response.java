@@ -1,4 +1,4 @@
-package com.Quiz.QuizApp.Model;
+package com.Quiz.QuizApp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

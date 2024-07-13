@@ -1,6 +1,5 @@
-package com.Quiz.QuizApp.Model;
+package com.Quiz.QuizApp.model;
 
-import jakarta.persistence.Entity;
 import lombok.Data;
 
 @Data

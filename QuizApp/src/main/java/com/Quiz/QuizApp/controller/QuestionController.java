@@ -1,6 +1,6 @@
-package com.Quiz.QuizApp.Controller;
+package com.Quiz.QuizApp.controller;
 
-import com.Quiz.QuizApp.Model.Question;
+import com.Quiz.QuizApp.model.Question;
 import com.Quiz.QuizApp.Service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,12 +27,15 @@ public class QuestionController {
 
     @PostMapping("add")
     public ResponseEntity<Question> addQuestion(@RequestBody Question question) {
-        return new ResponseEntity<>(questionService.addQuestion(question), HttpStatus.OK);
+        if(question!=null)
+            return new ResponseEntity<>(questionService.addQuestion(question), HttpStatus.OK);
+        else
+            return new ResponseEntity<>(new Question(),HttpStatus.NO_CONTENT);
     }
 
-    @DeleteMapping("delete/{Id}")
-    public ResponseEntity<?> deleteQuestionById(@PathVariable int Id) {
-        questionService.deleteQuestionById(Id);
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<?> deleteQuestionById(@PathVariable int id) {
+        questionService.deleteQuestionById(id);
         return ResponseEntity.ok().build();
     }
 

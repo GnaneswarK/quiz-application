@@ -1,9 +1,7 @@
-package com.Quiz.QuizApp.Model;
+package com.Quiz.QuizApp.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

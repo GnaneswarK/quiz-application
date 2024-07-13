@@ -1,7 +1,7 @@
 package com.Quiz.QuizApp.Service;
 
-import com.Quiz.QuizApp.Model.Question;
-import com.Quiz.QuizApp.Repository.QuestionRepo;
+import com.Quiz.QuizApp.model.Question;
+import com.Quiz.QuizApp.repository.QuestionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class QuestionService
 {
     @Autowired
-    QuestionRepo questionRepo;
+    private QuestionRepo questionRepo;
     public List<Question> getAllQuestions() {
         return questionRepo.findAll();
     }
@@ -29,6 +29,7 @@ public class QuestionService
 
     public void deleteQuestionById(int id)
     {
-        questionRepo.deleteById(id);
+        if(questionRepo.findById(id).isPresent())
+            questionRepo.deleteById(id);
     }
 }

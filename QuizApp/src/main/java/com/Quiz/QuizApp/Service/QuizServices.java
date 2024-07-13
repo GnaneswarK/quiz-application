@@ -1,11 +1,11 @@
 package com.Quiz.QuizApp.Service;
 
-import com.Quiz.QuizApp.Model.Response;
-import com.Quiz.QuizApp.Model.Question;
-import com.Quiz.QuizApp.Model.QuestionWrapper;
-import com.Quiz.QuizApp.Model.Quiz;
-import com.Quiz.QuizApp.Repository.QuestionRepo;
-import com.Quiz.QuizApp.Repository.QuizRepo;
+import com.Quiz.QuizApp.model.Response;
+import com.Quiz.QuizApp.model.Question;
+import com.Quiz.QuizApp.model.QuestionWrapper;
+import com.Quiz.QuizApp.model.Quiz;
+import com.Quiz.QuizApp.repository.QuestionRepo;
+import com.Quiz.QuizApp.repository.QuizRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,7 +48,8 @@ public class QuizServices
     {
         Quiz quiz = quizRepo.findById(id).get();
         List<Question> questionsFromDB = quiz.getQuestion();
-        int right = 0; int i = 0;
+        int right = 0;
+        int i = 0;
         for(Response r : responses) {
             if (r.getResponse().equals(questionsFromDB.get(i).getRightAnswer()))
                 right++;
